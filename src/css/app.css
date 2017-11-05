@@ -1,3 +1,18 @@
 /* =========
 Your custom styles go here
  ========= */
+
+.carousel-row {
+  display: flex;
+  flex-direction: row;
+  height: 200px;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  overflow-x: scroll;
+
+}
+.carousel-row .carousel-image {
+  height: 180px;
+  width: auto;
+  margin-right: 10px;
+}
