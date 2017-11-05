@@ -16,11 +16,16 @@ Your custom styles go here
   width: auto;
   margin-right: 10px;
 }
+.carousel-title a {
+  color: black;
+  text-decoration: underline;
+}
 
 
 .details-top {
   display: flex;
   flex-direction: row;
+  margin-bottom: 1rem;
 }
 .details-top .details-top-info {
   flex: 1;
@@ -29,12 +34,13 @@ Your custom styles go here
 }
 .details-top .details-top-info-text {
   flex: 1;
+  margin-bottom: 1rem;
 }
 .details-top .details-top-image-wrapper {
   flex: none;
 }
 .details-top .details-image {
-  width: 100px;
+  width: 125px;
   height: auto;
   margin-right: 15px;
 }

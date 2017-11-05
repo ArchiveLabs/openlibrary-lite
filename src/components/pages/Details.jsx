@@ -42,6 +42,29 @@ export const Details = class extends React.Component {
     }
 
     metadata = metadata.metadata; // just use metadata
+    let availability = metadata.loans__status__status;
+
+    let readButtonEl;
+    if (availability == 'UNAVAILABLE') {
+      readButtonEl = <Button
+        external={true}
+        href={'https://archive.org/stream/' + metadata.identifier}>
+          Join Waitlist
+      </Button>
+    } else if (availability == 'AVAILABLE') {
+      readButtonEl = <Button
+        external={true}
+        href={'https://archive.org/stream/' + metadata.identifier}>
+          Borrow
+      </Button>
+    } else {
+      readButtonEl = <Button
+        external={true}
+        href={'https://archive.org/stream/' + metadata.identifier}>
+          Read Now
+      </Button>
+    }
+
 
     return (<div>
       <div className="details-top">
@@ -58,7 +81,12 @@ export const Details = class extends React.Component {
             {metadata.title}
           </div>
           <div>
-            <Button>Read</Button>
+            {readButtonEl}
+            <Button
+              external={true}
+              href={'http://api.archivelab.org:8000/?ocaid=' + metadata.identifier}>
+                Audio
+            </Button>
             {/*<Button>Favorite</Button>*/}
           </div>
         </div>
