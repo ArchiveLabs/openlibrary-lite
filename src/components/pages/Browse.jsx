@@ -73,7 +73,7 @@ export const Browse = class extends React.Component {
         <h3>{key}</h3>
         <div className="carousel-row">
           {this.state.carousels[key].docs.map((row) => {
-            return (<Link link={"/details/" + row.identifier}>
+            return (<Link href={"/details/" + row.identifier}>
               <img
                   className="carousel-image"
                   src={'https://archive.org/services/img/' + row.identifier}

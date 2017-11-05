@@ -21,7 +21,6 @@ const LeftPanel = (props, context) => (
 					<List>
 						<ListItem link="/mybooks/" title="MyBooks" linkView="#main-view" linkClosePanel></ListItem>
 						<ListItem link="/form/" title="Settings" linkView="#main-view" linkClosePanel></ListItem>
-						<ListItem link="/details/tomclancysnetfor00clan_2/" title="Details test" linkView="#main-view" linkClosePanel></ListItem>
 
 						<ListItem title=""><Button openLoginScreen="#login-screen">Login Screen</Button></ListItem>
 					</List>
