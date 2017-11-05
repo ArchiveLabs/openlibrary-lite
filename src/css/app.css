@@ -16,3 +16,25 @@ Your custom styles go here
   width: auto;
   margin-right: 10px;
 }
+
+
+.details-top {
+  display: flex;
+  flex-direction: row;
+}
+.details-top .details-top-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.details-top .details-top-info-text {
+  flex: 1;
+}
+.details-top .details-top-image-wrapper {
+  flex: none;
+}
+.details-top .details-image {
+  width: 100px;
+  height: auto;
+  margin-right: 15px;
+}
