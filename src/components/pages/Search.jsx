@@ -6,60 +6,78 @@ import jQuery from 'jquery';
  * Search results page
  */
 
+ function getStatusText(availability) {
+   if (availability == 'UNAVAILABLE') {
+     return 'Join Waitlist';
+   } else if (availability == 'AVAILABLE') {
+     return 'Borrow';
+   } else {
+     return 'Read now';
+   }
+ }
+
 export const Search = class extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       'search': {},
+      'query': props.query
     };
   }
 
-  fetchData(query) {
+  fetchData(q) {
     jQuery.getJSON({
-      'results': 'https://archive.org/advancedsearch.php?' + query + '/?callback=?'
+      'url': 'https://archive.org/advancedsearch.php?callback=?',
+      'data': {
+        'q': q,
+        'output': 'json',
+        'rows': 50,
+        'fl': 'identifier,title,loans__status__status,creator'
+      }
     }).then((data) => {
-      this.setState({'search': data});
+      console.log(data);
+      this.setState({'search': {
+        docs: data.response.docs,
+        numFound: data.response.numFound,
+        start: data.response.start,
+        'q': q
+      }});
     });
   }
 
   componentDidMount() {
-    this.state.query = 'q=collection%3A%28inlibrary%29+AND+loans__status__status%3AAVAILABLE+AND+openlibrary_work%3A%28*%29+AND+languageSorter%3A%28%22English%22%29+AND+openlibrary_subject%3Aopenlibrary_staff_picks&fl%5B%5D=identifier&fl%5B%5D=title&sort%5B%5D=&sort%5B%5D=&sort%5B%5D=&rows=50&page=1&output=json')
     this.fetchData(this.state.query);
   }
 
   render() {
-    let resultKeys = Object.keys(this.state.search);
-    let result = resultKeys.map((key) => {
-      return (<div>
-      <div className="result-top">
-        <div className="result-top-image-wrapper">
-          <img
-              className="result-image"
-              src={'https://archive.org/services/img/' + result.identifier}
-              alt={result.title}
-          />
-        </div>
-        <div className="result-top-info">
-          <div className="result-top-info-text">
-            {result.identifier}<br/>
-            {result.title}
-          </div>
-          <div>
-            <Button>Read</Button>
-          </div>
-        </div>
+    let resultEls;
+
+    if (this.state.search.docs) {
+      resultEls = <div className="search-results">
+        {this.state.search.docs.map((row) => {
+          return (<Link className="search-row" href={"/details/" + row.identifier}>
+              <div className="search-row-image-wrapper">
+                <img
+                  className="search-image"
+                  src={'https://archive.org/services/img/' + row.identifier}
+                  alt={row.title}
+                />
+              </div>
+              <div className="search-row-info">
+                <div className="search-title">{row.title}</div>
+                <div className="search-author">by {row.creator}</div>
+                <div>{getStatusText(row.loans__status__status)}</div>
+              </div>
+          </Link>)
+        })}
       </div>
-      <div className="result-bottom">
-        {result.description}
-      </div>
-    </div>);
-    });
+    }
 
     return (<Page>
-        <Navbar title="Searc Results" backLink="Back" sliding />
+        <Navbar title="Search Results" backLink="Back" sliding />
         <ContentBlock inner>
             <div>
-              {result}
+              {resultEls}
             </div>
         </ContentBlock>
     </Page>);

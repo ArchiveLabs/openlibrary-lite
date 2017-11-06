@@ -9,6 +9,7 @@ Your custom styles go here
   flex-wrap: nowrap;
   align-items: stretch;
   overflow-x: scroll;
+  margin-bottom: 1.5rem;
 
 }
 .carousel-row .carousel-image {
@@ -43,4 +44,35 @@ Your custom styles go here
   width: 125px;
   height: auto;
   margin-right: 15px;
+}
+.details-title {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.search-row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1.5rem;
+}
+a.search-row {
+  color: black;
+}
+.search-row-image-wrapper {
+  flex: none;
+}
+.search-row-image-wrapper img {
+  width: 120px;
+  height: auto;
+  margin-right: 1rem;
+}
+.search-row-info {
+  flex: 1;
+}
+.search-title {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.search-author {
+  margin-bottom: 1rem;
 }

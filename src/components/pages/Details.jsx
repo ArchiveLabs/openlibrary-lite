@@ -65,6 +65,15 @@ export const Details = class extends React.Component {
       </Button>
     }
 
+    let descEl;
+    // TODO replace nl with br
+    if (metadata.description) {
+      descEl = (<div>
+        <h3>Description</h3>
+        {metadata.description}
+      </div>)
+    }
+
 
     return (<div>
       <div className="details-top">
@@ -77,8 +86,8 @@ export const Details = class extends React.Component {
         </div>
         <div className="details-top-info">
           <div className="details-top-info-text">
-            {metadata.identifier}<br/>
-            {metadata.title}
+            <div className="details-title">{metadata.title}</div>
+            <div className="details-author">by {metadata.creator}</div>
           </div>
           <div>
             {readButtonEl}
@@ -92,7 +101,9 @@ export const Details = class extends React.Component {
         </div>
       </div>
       <div className="details-bottom">
-        {metadata.description}
+        <div>
+          {descEl}
+        </div>
       </div>
     </div>);
   }
