@@ -1,20 +1,10 @@
 import React from 'react';
-import {Page, ContentBlock, Navbar, Link} from 'framework7-react';
+import {Page, ContentBlock, Navbar, Link, Button} from 'framework7-react';
 import jQuery from 'jquery';
 
 /**
  * Search results page
  */
-
- function getStatusText(availability) {
-   if (availability == 'UNAVAILABLE') {
-     return 'Join Waitlist';
-   } else if (availability == 'AVAILABLE') {
-     return 'Borrow';
-   } else {
-     return 'Read now';
-   }
- }
 
 export const Search = class extends React.Component {
   constructor(props) {
@@ -65,8 +55,19 @@ export const Search = class extends React.Component {
               </div>
               <div className="search-row-info">
                 <div className="search-title">{row.title}</div>
-                <div className="search-author">by {row.creator}</div>
-                <div>{getStatusText(row.loans__status__status)}</div>
+                <div className="search-author">{row.creator}</div>
+                <div>
+                  <Button
+                      external={true}
+                      href={'https://archive.org/stream/' + row.identifier}>
+                      {row.loans__status__status === 'UNAVAILABLE' ? 'Join Waitlist' : row.loans__status__status === 'AVAILABLE' ? 'Borrow' : 'Read Now'}
+                  </Button>
+                  <Button
+                    external={true}
+                    href={'http://api.archivelab.org:8000/?ocaid=' + row.identifier}>
+                      Audio
+                  </Button>
+                </div>
               </div>
           </Link>)
         })}
