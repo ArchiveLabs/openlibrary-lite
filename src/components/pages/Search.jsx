@@ -63,11 +63,6 @@ export const Search = class extends React.Component {
                       href={'https://archive.org/stream/' + row.identifier}>
                       {row.loans__status__status === 'UNAVAILABLE' ? 'Join Waitlist' : row.loans__status__status === 'AVAILABLE' ? 'Borrow' : 'Read Now'}
                   </Button>
-                  <Button
-                    external={true}
-                    href={'http://api.archivelab.org:8000/?ocaid=' + row.identifier}>
-                      Audio
-                  </Button>
                 </div>
               </div>
           </Link>)
