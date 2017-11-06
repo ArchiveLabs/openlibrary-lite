@@ -79,6 +79,14 @@ export const Details = class extends React.Component {
       </div>)
     }
 
+    let authors;
+    let authorLinks;
+    if (metadata.creator instanceof Array) {
+      authors = metadata.creator
+    } else {
+      authors = [metadata.creator]
+    }
+    authorLinks = (authors.map((author, i) => <Link href={"/search/creator:" + author}>{author}</Link>))
 
     return (<div>
       <div className="details-top">
@@ -92,7 +100,7 @@ export const Details = class extends React.Component {
         <div className="details-top-info">
           <div className="details-top-info-text">
             <div className="details-title">{metadata.title}</div>
-            <div className="details-author">by {metadata.creator instanceof Array ? metadata.creator.join(", "): metadata.creator}</div>
+            <div className="details-author">by {authorLinks}</div>
           </div>
           <div>
             {readButtonEl}
