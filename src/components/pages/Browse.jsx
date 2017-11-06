@@ -104,7 +104,6 @@ export const Browse = class extends React.Component {
 
       </div>);
     });
-    console.log(carouselsEl);
 
     return (<Page>
         <Navbar title="Browse" backLink="Back" sliding />
