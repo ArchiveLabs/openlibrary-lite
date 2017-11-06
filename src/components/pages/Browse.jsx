@@ -1,5 +1,6 @@
 import React from 'react';
 import {Page, ContentBlock, Navbar, Link} from 'framework7-react';
+import {SearchBar} from "./SearchBar"
 import jQuery from 'jquery';
 
 
@@ -107,6 +108,7 @@ export const Browse = class extends React.Component {
 
     return (<Page>
         <Navbar title="Browse" backLink="Back" sliding />
+        <SearchBar />
         <ContentBlock inner>
             <p>Browse Open Library</p>
             <div>
