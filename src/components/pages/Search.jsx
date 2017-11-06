@@ -16,10 +16,11 @@ export const Search = class extends React.Component {
   }
 
   fetchData(q) {
+    q = decodeURIComponent(q);
     jQuery.getJSON({
       'url': 'https://archive.org/advancedsearch.php?callback=?',
       'data': {
-        'q': q,
+        'q':  q,
         'output': 'json',
         'rows': 50,
         'fl': 'identifier,title,loans__status__status,creator'

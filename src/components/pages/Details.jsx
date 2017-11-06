@@ -44,7 +44,7 @@ export const Details = class extends React.Component {
     metadata = metadata.metadata; // just use metadata
     let availability = metadata.loans__status__status;
 
-    let readButtonEl;
+    let readButtonEl, audioButtonEl;
     if (availability == 'UNAVAILABLE') {
       readButtonEl = <Button
         external={true}
@@ -62,6 +62,11 @@ export const Details = class extends React.Component {
         external={true}
         href={'https://archive.org/stream/' + metadata.identifier}>
           Read Now
+      </Button>
+      audioButtonEl = <Button
+        external={true}
+        href={'http://api.archivelab.org:8000/?ocaid=' + metadata.identifier}>
+          Audio
       </Button>
     }
 
@@ -87,15 +92,11 @@ export const Details = class extends React.Component {
         <div className="details-top-info">
           <div className="details-top-info-text">
             <div className="details-title">{metadata.title}</div>
-            <div className="details-author">by {metadata.creator}</div>
+            <div className="details-author">by {metadata.creator instanceof Array ? metadata.creator.join(", "): metadata.creator}</div>
           </div>
           <div>
             {readButtonEl}
-            <Button
-              external={true}
-              href={'http://api.archivelab.org:8000/?ocaid=' + metadata.identifier}>
-                Audio
-            </Button>
+            {audioButtonEl}
             {/*<Button>Favorite</Button>*/}
           </div>
         </div>

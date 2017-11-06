@@ -9,6 +9,7 @@ Your custom styles go here
   flex-wrap: nowrap;
   align-items: stretch;
   overflow-x: scroll;
+  overflow-y: hidden;
   margin-bottom: 1.5rem;
 
 }
@@ -75,4 +76,25 @@ a.search-row {
 }
 .search-author {
   margin-bottom: 1rem;
+}
+
+
+
+.search-bar form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.search-label {
+  flex: none;
+}
+
+.search-bar .item-input {
+  flex: 1;
+}
+.search-bar form input[type=text] {
+  padding: 3px;
+  width: 100%;
 }
