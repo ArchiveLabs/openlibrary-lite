@@ -33,9 +33,11 @@ export class SearchBar extends Component {
 
     render() {
         return (
-            <div>
+            <div className="search-bar">
                 <form onSubmit={this.handleSubmit}>
+                    <span class="search-label">Search</span>
                     <FormInput type="text" placeholder="Search" onChange={this.handleChange} value={this.state.searchValue} />
+
                 </form>
             </div>
         );
