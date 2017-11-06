@@ -96,7 +96,7 @@ const AppLoginScreen = () => (
 
 export const App = () => (
 	//Change themeType to "material" to use the Material theme
-	<Framework7App themeType="ios" routes={routes}>
+	<Framework7App themeType="ios" routes={routes} pushState={true}>
 		<Statusbar />
 		<LeftPanel />
 		<MainViews />
