@@ -36,7 +36,7 @@ Also see open issues https://github.com/ArchiveLabs/openlibrary-lite/issues/
 
 ## License
 
-MIT
+GPL-3
 
 
 ## Credits
@@ -44,8 +44,8 @@ MIT
 Started at the 2017 Aaron Swartz Hackathon.
 
 by:
-- Richard Caceres @rchrd2
-- Barbara Miller @galgeek
-- Micah Carroll @micahcarroll
-- Mek Karpeles @mekarpeles
-- Charles Horn @hornc
+- Richard Caceres [@rchrd2](https://github.com/rchrd2)
+- Barbara Miller [@galgeek](https://github.com/galgeek)
+- Micah Carroll [@micahcarroll](https://github.com/micahcarroll)
+- Mek Karpeles [@mekarpeles](https://github.com/mekarpeles)
+- Charles Horn [@hornc](https://github.com/hornc)
