@@ -85,9 +85,9 @@ export const Details = class extends React.Component {
           />
         </div>
         <div className="details-top-info">
-          <div className="details-top-info-text">
+          <div className="details-top-info-text"> 
             <div className="details-title">{metadata.title}</div>
-            <div className="details-author">by {metadata.creator}</div>
+            <div className="details-author">by {metadata.creator instanceof Array ? metadata.creator.join(", "): metadata.creator}</div>
           </div>
           <div>
             {readButtonEl}
