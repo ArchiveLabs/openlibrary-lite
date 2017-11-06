@@ -19,6 +19,8 @@ const LeftPanel = (props, context) => (
 				<Page>
 					{context.framework7AppContext.theme.material ? <Navbar title="Left Panel"></Navbar> : null}
 					<List>
+					<ListItem link="/" title="Home" linkView="#main-view" linkClosePanel></ListItem>
+
 						<ListItem link="/mybooks/" title="MyBooks" linkView="#main-view" linkClosePanel></ListItem>
 						<ListItem link="/form/" title="Settings" linkView="#main-view" linkClosePanel></ListItem>
 
@@ -97,7 +99,7 @@ const AppLoginScreen = () => (
 export const App = () => {
 	let framework7;
 	let currentRoute;
-	
+
 	window.getFramework7 = () => framework7;
 	window.getCurrentRoute = () => currentRoute;
 
