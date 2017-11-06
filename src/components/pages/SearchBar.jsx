@@ -23,20 +23,17 @@ export class SearchBar extends Component {
     handleSubmit(event) {
         console.log(this.state.searchValue)
         event.preventDefault();
-        let query =  encodeURIComponent('collection:texts ' + this.state.searchValue)
-        //window.location.href = "/#!/search/" + query
-        //window.location.hash = "#!/search/" + this.state.searchValue
-        //window.location.assign("/#!/search/" + query)
-        window.getFramework7().mainView.router.load({'url':'/search/' + query})
+        let query =  encodeURIComponent('(collection:texts OR collection:inlibrary) AND ' + this.state.searchValue)
+        window.getFramework7().mainView.router.load({'url':'search/' + query})
     }
 
     render() {
         return (
             <div className="search-bar">
                 <form onSubmit={this.handleSubmit}>
-                    <span class="search-label">Search</span>
+                    <span className="search-label">Search</span>
                     <FormInput type="text" placeholder="Search" onChange={this.handleChange} value={this.state.searchValue} />
-
+                    <input type="submit" name="Search"/>
                 </form>
             </div>
         );

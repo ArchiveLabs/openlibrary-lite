@@ -48,6 +48,7 @@ export const Details = class extends React.Component {
     if (availability == 'UNAVAILABLE') {
       readButtonEl = <Button
         external={true}
+        color='yellow'
         href={'https://archive.org/stream/' + metadata.identifier}>
           Join Waitlist
       </Button>
@@ -73,7 +74,7 @@ export const Details = class extends React.Component {
     let descEl;
     // TODO replace nl with br
     if (metadata.description) {
-      descEl = (<div>
+      descEl = (<div className="details-description">
         <h3>Description</h3>
         {metadata.description}
       </div>)
@@ -106,6 +107,10 @@ export const Details = class extends React.Component {
             {readButtonEl}
             {audioButtonEl}
             {/*<Button>Favorite</Button>*/}
+          </div>
+          <div>
+            <br/>
+            <Link external href={'https://archive.org/details/'+metadata.identifier}>View on Archive.org</Link>
           </div>
         </div>
       </div>

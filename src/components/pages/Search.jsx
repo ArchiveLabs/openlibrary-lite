@@ -26,7 +26,6 @@ export const Search = class extends React.Component {
         'fl': 'identifier,title,loans__status__status,creator'
       }
     }).then((data) => {
-      console.log(data);
       this.setState({'search': {
         docs: data.response.docs,
         numFound: data.response.numFound,
@@ -43,7 +42,7 @@ export const Search = class extends React.Component {
   render() {
     let resultEls;
 
-    if (this.state.search.docs) {
+    if (this.state.search.docs && this.state.search.numFound) {
       resultEls = <div className="search-results">
         {this.state.search.docs.map((row) => {
           return (<Link className="search-row" href={"/details/" + row.identifier}>
@@ -60,7 +59,9 @@ export const Search = class extends React.Component {
                 <div>
                   <Button
                       external={true}
-                      href={'https://archive.org/stream/' + row.identifier}>
+                      href={'https://archive.org/stream/' + row.identifier}
+                      color={row.loans__status__status === 'UNAVAILABLE' ? 'yellow' : null}
+                      >
                       {row.loans__status__status === 'UNAVAILABLE' ? 'Join Waitlist' : row.loans__status__status === 'AVAILABLE' ? 'Borrow' : 'Read Now'}
                   </Button>
                 </div>
@@ -68,6 +69,10 @@ export const Search = class extends React.Component {
           </Link>)
         })}
       </div>
+    } else if (this.state.search.numFound === 0) {
+      resultEls = <div>No results found.</div>;
+    } else {
+      resultEls = <div>Loading...</div>;
     }
 
     return (<Page>

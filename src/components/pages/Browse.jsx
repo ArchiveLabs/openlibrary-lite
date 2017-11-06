@@ -85,13 +85,13 @@ export const Browse = class extends React.Component {
 
   render() {
     let carouselKeys = Object.keys(this.state.carousels);
-    let carouselsEl = carouselKeys.map((key) => {
-      return (<div>
+    let carouselsEl = carouselKeys.map((key, i) => {
+      return (<div key={i}>
         <h3 className="carousel-title"><Link href={"search/" + this.state.carousels[key].q}>{key}</Link></h3>
         <div className="carousel-row">
-          {this.state.carousels[key].docs.map((row) => {
-            return (<Link href={"details/" + row.identifier}>
-              <div class="carousel-image-wrap">
+          {this.state.carousels[key].docs.map((row, i) => {
+            return (<Link href={"details/" + row.identifier} key={i}>
+              <div className="carousel-image-wrap">
                 <img
                     className="carousel-image"
                     src={'https://archive.org/services/img/' + row.identifier}
