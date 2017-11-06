@@ -9,6 +9,7 @@ Your custom styles go here
   flex-wrap: nowrap;
   align-items: stretch;
   overflow-x: scroll;
+  overflow-y: hidden;
   margin-bottom: 1.5rem;
 
 }
