@@ -1,0 +1,100 @@
+/* =========
+Your custom styles go here
+ ========= */
+
+.carousel-row {
+  display: flex;
+  flex-direction: row;
+  height: 200px;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  margin-bottom: 1.5rem;
+
+}
+.carousel-row .carousel-image {
+  height: 180px;
+  width: auto;
+  margin-right: 10px;
+}
+.carousel-title a {
+  color: black;
+  text-decoration: underline;
+}
+
+
+.details-top {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+}
+.details-top .details-top-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.details-top .details-top-info-text {
+  flex: 1;
+  margin-bottom: 1rem;
+}
+.details-top .details-top-image-wrapper {
+  flex: none;
+}
+.details-top .details-image {
+  width: 125px;
+  height: auto;
+  margin-right: 15px;
+}
+.details-title {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.search-row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1.5rem;
+}
+a.search-row {
+  color: black;
+}
+.search-row-image-wrapper {
+  flex: none;
+}
+.search-row-image-wrapper img {
+  width: 120px;
+  height: auto;
+  margin-right: 1rem;
+}
+.search-row-info {
+  flex: 1;
+}
+.search-title {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.search-author {
+  margin-bottom: 1rem;
+}
+
+
+
+.search-bar form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.search-label {
+  flex: none;
+}
+
+.search-bar .item-input {
+  flex: 1;
+}
+.search-bar form input[type=text] {
+  padding: 3px;
+  width: 100%;
+}
